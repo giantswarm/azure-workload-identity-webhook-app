@@ -15,5 +15,4 @@ helm dependency update helm/azure-workload-identity-webhook
 
 # Patches
  ./sync/patches/values/patch.sh
- ./sync/patches/chart/patch.sh
  ./sync/patches/helpers/patch.sh
