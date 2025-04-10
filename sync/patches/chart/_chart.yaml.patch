@@ -1,0 +1,10 @@
+diff --git a/helm/azure-workload-identity-webhook/Chart.yaml b/helm/azure-workload-identity-webhook/Chart.yaml
+index 7939990..f7f36bf 100644
+--- a/helm/azure-workload-identity-webhook/Chart.yaml
++++ b/helm/azure-workload-identity-webhook/Chart.yaml
+@@ -7,3 +7,5 @@ appVersion: v1.4.1
+ home: https://github.com/Azure/azure-workload-identity
+ sources:
+   - https://github.com/Azure/azure-workload-identity
++annotations:
++  application.giantswarm.io/team: "phoenix"

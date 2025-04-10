@@ -1,0 +1,13 @@
+diff --git a/helm/azure-workload-identity-webhook/values.yaml b/helm/azure-workload-identity-webhook/values.yaml
+index 009c76b..11f40db 100644
+--- a/helm/azure-workload-identity-webhook/values.yaml
++++ b/helm/azure-workload-identity-webhook/values.yaml
+@@ -4,7 +4,7 @@
+ 
+ replicaCount: 2
+ image:
+-  repository: mcr.microsoft.com/oss/azure/workload-identity/webhook
++  repository: gsoci.azurecr.io/giantswarm/webhook
+   pullPolicy: IfNotPresent
+   # Overrides the image tag whose default is the chart appVersion.
+   release: v1.4.1
