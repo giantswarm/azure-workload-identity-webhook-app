@@ -7,5 +7,3 @@ appVersion: v1.4.1
 home: https://github.com/Azure/azure-workload-identity
 sources:
   - https://github.com/Azure/azure-workload-identity
-annotations:
-  application.giantswarm.io/team: "phoenix"
