@@ -1,4 +1,4 @@
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/giantswarm/azure-workload-identity-app/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/giantswarm/azure-workload-identity-app/tree/main)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/giantswarm/azure-workload-identity-webhook-app/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/giantswarm/azure-workload-identity-webhook-app/tree/main)
 
 [Guide about how to manage an app on Giant Swarm](https://handbook.giantswarm.io/docs/dev-and-releng/app-developer-processes/adding_app_to_appcatalog/)
 
