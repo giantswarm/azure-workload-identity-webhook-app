@@ -1,5 +1,5 @@
 diff --git a/helm/azure-workload-identity-webhook/values.yaml b/helm/azure-workload-identity-webhook/values.yaml
-index 009c76b..35ea94d 100644
+index 009c76b..696832d 100644
 --- a/helm/azure-workload-identity-webhook/values.yaml
 +++ b/helm/azure-workload-identity-webhook/values.yaml
 @@ -4,7 +4,7 @@
@@ -11,9 +11,12 @@ index 009c76b..35ea94d 100644
    pullPolicy: IfNotPresent
    # Overrides the image tag whose default is the chart appVersion.
    release: v1.4.1
-@@ -19,7 +19,15 @@ resources:
+@@ -17,9 +17,17 @@ resources:
+     memory: 30Mi
+   requests:
      cpu: 100m
-     memory: 20Mi
+-    memory: 20Mi
++    memory: 70Mi
  tolerations: []
 -affinity: {}
 +affinity:

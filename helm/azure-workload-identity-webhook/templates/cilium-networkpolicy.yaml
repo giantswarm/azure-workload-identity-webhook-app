@@ -1,0 +1,22 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  labels:
+    app: '{{ template "workload-identity-webhook.name" . }}'
+    azure-workload-identity.io/system: "true"
+    chart: '{{ template "workload-identity-webhook.name" . }}'
+    release: '{{ .Release.Name }}'
+  name: azure-workload-identity
+  namespace: '{{ .Release.Namespace }}'
+spec:
+  egress:
+  - toEntities:
+    - cluster
+    - kube-apiserver
+  endpointSelector:
+    matchLabels:
+      app: azure-workload-identity-webhook
+  ingress:
+  - fromEntities:
+    - cluster
+    - kube-apiserver

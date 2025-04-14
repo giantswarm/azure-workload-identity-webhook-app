@@ -4,7 +4,7 @@
 
 replicaCount: 2
 image:
-  repository: mcr.microsoft.com/oss/azure/workload-identity/webhook
+  repository: gsoci.azurecr.io/giantswarm/webhook
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   release: v1.4.1
@@ -17,9 +17,17 @@ resources:
     memory: 30Mi
   requests:
     cpu: 100m
-    memory: 20Mi
+    memory: 70Mi
 tolerations: []
-affinity: {}
+affinity:
+  podAntiAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 100
+        podAffinityTerm:
+          labelSelector:
+            matchLabels:
+              app: azure-workload-identity-webhook
+          topologyKey: kubernetes.io/hostname
 service:
   type: ClusterIP
   port: 443
