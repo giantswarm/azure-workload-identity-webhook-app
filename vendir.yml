@@ -17,5 +17,4 @@ directories:
         path: vendor/azure-workload-identity-webhook/charts/workload-identity-webhook
       ignorePaths:
       - values.schema.json
-      - Chart.yaml
       - templates/policyexception.yaml
