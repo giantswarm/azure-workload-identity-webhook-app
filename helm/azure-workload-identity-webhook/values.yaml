@@ -26,7 +26,7 @@ affinity:
         podAffinityTerm:
           labelSelector:
             matchLabels:
-              app.kubernetes.io/name: azure-workload-identity-webhook
+              app: azure-workload-identity-webhook
           topologyKey: kubernetes.io/hostname
 service:
   type: ClusterIP
