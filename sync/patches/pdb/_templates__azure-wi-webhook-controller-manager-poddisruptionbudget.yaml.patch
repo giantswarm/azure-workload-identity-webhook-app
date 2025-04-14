@@ -1,0 +1,12 @@
+diff --git a/helm/azure-workload-identity-webhook/templates/azure-wi-webhook-controller-manager-poddisruptionbudget.yaml b/helm/azure-workload-identity-webhook/templates/azure-wi-webhook-controller-manager-poddisruptionbudget.yaml
+index d511529..7aac65b 100644
+--- a/helm/azure-workload-identity-webhook/templates/azure-wi-webhook-controller-manager-poddisruptionbudget.yaml
++++ b/helm/azure-workload-identity-webhook/templates/azure-wi-webhook-controller-manager-poddisruptionbudget.yaml
+@@ -15,6 +15,7 @@ spec:
+   {{- if .Values.podDisruptionBudget.minAvailable }}
+   minAvailable: {{ .Values.podDisruptionBudget.minAvailable }}
+   {{- end }}
++  unhealthyPodEvictionPolicy: AlwaysAllow
+   selector:
+     matchLabels:
+       app: '{{ template "workload-identity-webhook.name" . }}'

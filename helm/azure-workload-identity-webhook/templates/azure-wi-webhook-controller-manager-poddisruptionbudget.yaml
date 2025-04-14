@@ -15,6 +15,7 @@ spec:
   {{- if .Values.podDisruptionBudget.minAvailable }}
   minAvailable: {{ .Values.podDisruptionBudget.minAvailable }}
   {{- end }}
+  unhealthyPodEvictionPolicy: AlwaysAllow
   selector:
     matchLabels:
       app: '{{ template "workload-identity-webhook.name" . }}'
