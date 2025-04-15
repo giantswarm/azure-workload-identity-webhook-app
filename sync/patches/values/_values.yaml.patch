@@ -1,0 +1,36 @@
+diff --git a/helm/azure-workload-identity-webhook/values.yaml b/helm/azure-workload-identity-webhook/values.yaml
+index 009c76b..b1b8187 100644
+--- a/helm/azure-workload-identity-webhook/values.yaml
++++ b/helm/azure-workload-identity-webhook/values.yaml
+@@ -4,7 +4,7 @@
+ 
+ replicaCount: 2
+ image:
+-  repository: mcr.microsoft.com/oss/azure/workload-identity/webhook
++  repository: gsoci.azurecr.io/giantswarm/webhook
+   pullPolicy: IfNotPresent
+   # Overrides the image tag whose default is the chart appVersion.
+   release: v1.4.1
+@@ -14,12 +14,20 @@ nodeSelector:
+ resources:
+   limits:
+     cpu: 100m
+-    memory: 30Mi
++    memory: 70Mi
+   requests:
+     cpu: 100m
+     memory: 20Mi
+ tolerations: []
+-affinity: {}
++affinity:
++  podAntiAffinity:
++    preferredDuringSchedulingIgnoredDuringExecution:
++      - weight: 100
++        podAffinityTerm:
++          labelSelector:
++            matchLabels:
++              app: azure-workload-identity-webhook
++          topologyKey: kubernetes.io/hostname
+ service:
+   type: ClusterIP
+   port: 443
