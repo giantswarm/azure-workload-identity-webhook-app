@@ -2,10 +2,11 @@ apiVersion: vendir.k14s.io/v1alpha1
 directories:
 - contents:
   - git:
-      commitTitle: 'release: update manifest and helm charts for v1.4.1 (#1535)...'
-      sha: f5390fc978ea523dfadcece476301b8b907cb9bd
+      commitTitle: 'ci: cleanup disk in release workflow to avoid running out of space
+        (#1592)...'
+      sha: 350cb28ceab55d0696bef2077a1cc9dff368e982
       tags:
-      - v1.4.1
+      - v1.5.0
     path: azure-workload-identity-webhook
   path: helm
 kind: LockConfig
