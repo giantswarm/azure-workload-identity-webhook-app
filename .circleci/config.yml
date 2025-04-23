@@ -26,7 +26,7 @@ workflows:
       #     context: architect
       #     app_catalog: control-plane-catalog
       #     app_name: azure-workload-identity-webhook
-      #     app_namespace: kube-system
+      #     app_namespace: giantswarm
       #     app_collection_repo: capz-app-collection
       #     requires:
       #       - push-to-control-plane-catalog
