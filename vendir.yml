@@ -11,5 +11,5 @@ directories:
     newRootPath: charts/workload-identity-webhook
     ignorePaths:
     - ci/default-values.yaml
-    - templates/cilium-networkpolicy.yaml
+    - templates/azure-wi-webhook-controller-manager-ciliumnetworkpolicy.yaml
     - values.schema.json
