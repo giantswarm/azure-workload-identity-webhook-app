@@ -10,5 +10,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Repository: Some chores. ([#6](https://github.com/giantswarm/azure-workload-identity-webhook-app/pull/6))
+- CircleCI: Fix app collection namespace. ([#7](https://github.com/giantswarm/azure-workload-identity-webhook-app/pull/7))
 
 [Unreleased]: https://github.com/giantswarm/azure-workload-identity-webhook-app/tree/main
