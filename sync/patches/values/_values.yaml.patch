@@ -25,12 +25,12 @@ index 009c76b..b1b8187 100644
 +affinity:
 +  podAntiAffinity:
 +    preferredDuringSchedulingIgnoredDuringExecution:
-+      - weight: 100
-+        podAffinityTerm:
-+          labelSelector:
-+            matchLabels:
-+              app: azure-workload-identity-webhook
-+          topologyKey: kubernetes.io/hostname
++    - podAffinityTerm:
++        labelSelector:
++          matchLabels:
++            app: azure-workload-identity-webhook
++        topologyKey: kubernetes.io/hostname
++      weight: 100
  service:
    type: ClusterIP
    port: 443
