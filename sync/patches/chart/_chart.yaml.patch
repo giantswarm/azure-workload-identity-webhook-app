@@ -10,9 +10,9 @@ index 7939990..c1df543 100644
  type: application
  version: 1.4.1
  appVersion: v1.4.1
-+icon: https://s.giantswarm.io/app-icons/azure-ad-pod-identity/1/light.svg
  home: https://github.com/Azure/azure-workload-identity
++icon: https://s.giantswarm.io/app-icons/azure-ad-pod-identity/1/light.svg
  sources:
    - https://github.com/Azure/azure-workload-identity
 +annotations:
-+  application.giantswarm.io/team: "phoenix"
++  application.giantswarm.io/team: phoenix

@@ -6,17 +6,20 @@ metadata:
     azure-workload-identity.io/system: "true"
     chart: '{{ template "workload-identity-webhook.name" . }}'
     release: '{{ .Release.Name }}'
-  name: azure-workload-identity
+  name: azure-wi-webhook-controller-manager
   namespace: '{{ .Release.Namespace }}'
 spec:
-  egress:
-  - toEntities:
-    - cluster
-    - kube-apiserver
   endpointSelector:
     matchLabels:
-      app: azure-workload-identity-webhook
+      app: '{{ template "workload-identity-webhook.name" . }}'
+      azure-workload-identity.io/system: "true"
+      chart: '{{ template "workload-identity-webhook.name" . }}'
+      release: '{{ .Release.Name }}'
   ingress:
   - fromEntities:
+    - cluster
+    - kube-apiserver
+  egress:
+  - toEntities:
     - cluster
     - kube-apiserver

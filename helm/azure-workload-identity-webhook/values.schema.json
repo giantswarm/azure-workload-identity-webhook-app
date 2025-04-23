@@ -9,7 +9,7 @@
             "type": "string"
         },
         "azureTenantID": {
-            "type": "string"
+            "type": ["null", "string"]
         },
         "image": {
             "type": "object",

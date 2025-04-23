@@ -22,12 +22,12 @@ tolerations: []
 affinity:
   podAntiAffinity:
     preferredDuringSchedulingIgnoredDuringExecution:
-      - weight: 100
-        podAffinityTerm:
-          labelSelector:
-            matchLabels:
-              app: azure-workload-identity-webhook
-          topologyKey: kubernetes.io/hostname
+    - podAffinityTerm:
+        labelSelector:
+          matchLabels:
+            app: azure-workload-identity-webhook
+        topologyKey: kubernetes.io/hostname
+      weight: 100
 service:
   type: ClusterIP
   port: 443

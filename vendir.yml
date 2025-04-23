@@ -1,21 +1,15 @@
 apiVersion: vendir.k14s.io/v1alpha1
 kind: Config
 directories:
-  - path: vendor
-    contents:
-      - path: azure-workload-identity-webhook
-        git:
-          depth: 1
-          url: https://github.com/Azure/azure-workload-identity
-          ref: "v1.4.1"
-        includePaths:
-          - charts/workload-identity-webhook/**/*
-  - path: helm/azure-workload-identity-webhook
-    contents:
-    - path: .
-      directory:
-        path: vendor/azure-workload-identity-webhook/charts/workload-identity-webhook
-      ignorePaths:
-      - values.schema.json
-      - templates/cilium-networkpolicy.yaml
-      - ci/default-values.yaml
+- path: helm
+  contents:
+  - path: azure-workload-identity-webhook
+    git:
+      url: https://github.com/Azure/azure-workload-identity
+      ref: v1.4.1
+      depth: 1
+    newRootPath: charts/workload-identity-webhook
+    ignorePaths:
+    - ci/default-values.yaml
+    - templates/azure-wi-webhook-controller-manager-ciliumnetworkpolicy.yaml
+    - values.schema.json

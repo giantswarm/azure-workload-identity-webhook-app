@@ -7,9 +7,5 @@ directories:
       tags:
       - v1.4.1
     path: azure-workload-identity-webhook
-  path: vendor
-- contents:
-  - directory: {}
-    path: .
-  path: helm/azure-workload-identity-webhook
+  path: helm
 kind: LockConfig
