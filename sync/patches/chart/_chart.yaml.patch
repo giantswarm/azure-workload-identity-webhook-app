@@ -15,4 +15,4 @@ index 7939990..c1df543 100644
  sources:
    - https://github.com/Azure/azure-workload-identity
 +annotations:
-+  application.giantswarm.io/team: "phoenix"
++  application.giantswarm.io/team: phoenix

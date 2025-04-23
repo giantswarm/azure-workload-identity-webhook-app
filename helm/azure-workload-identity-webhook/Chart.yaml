@@ -9,4 +9,4 @@ icon: https://s.giantswarm.io/app-icons/azure-ad-pod-identity/1/light.svg
 sources:
   - https://github.com/Azure/azure-workload-identity
 annotations:
-  application.giantswarm.io/team: "phoenix"
+  application.giantswarm.io/team: phoenix
