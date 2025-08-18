@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Chart: Update to upstream v1.5.1. ([#20](https://github.com/giantswarm/azure-workload-identity-webhook-app/pull/20))
+
 ## [0.2.0] - 2025-04-23
 
 ### Changed
