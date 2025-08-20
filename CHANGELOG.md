@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Values: Increase memory limit. ([#25](https://github.com/giantswarm/azure-workload-identity-webhook-app/pull/25))
+
 ## [1.0.0] - 2025-08-18
 
 ### Changed
