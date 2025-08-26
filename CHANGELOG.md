@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.2] - 2025-08-26
+
+### Changed
+
+- CircleCI: Push to app collection.
+
 ## [1.0.1] - 2025-08-20
 
 ### Changed
@@ -38,7 +44,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Repository: Some chores. ([#6](https://github.com/giantswarm/azure-workload-identity-webhook-app/pull/6))
 - CircleCI: Fix app collection namespace. ([#7](https://github.com/giantswarm/azure-workload-identity-webhook-app/pull/7))
 
-[Unreleased]: https://github.com/giantswarm/azure-workload-identity-webhook-app/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/giantswarm/azure-workload-identity-webhook-app/compare/v1.0.2...HEAD
+[1.0.2]: https://github.com/giantswarm/azure-workload-identity-webhook-app/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/giantswarm/azure-workload-identity-webhook-app/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/giantswarm/azure-workload-identity-webhook-app/compare/v0.2.0...v1.0.0
 [0.2.0]: https://github.com/giantswarm/azure-workload-identity-webhook-app/compare/v0.1.1...v0.2.0
