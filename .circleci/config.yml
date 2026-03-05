@@ -3,21 +3,33 @@ version: 2.1
 orbs:
   architect: giantswarm/architect@6.14.1
 
+job_filters: &job_filters
+  filters:
+    tags:
+      only: /^v[0-9]+\.[0-9]+\.[0-9]+$/
+    branches:
+      ignore:
+        - main
+
 workflows:
-  build:
+  package-and-push-chart-on-tag:
     jobs:
       - architect/push-to-app-catalog:
-          name: push-to-control-plane-catalog
           context: architect
           executor: app-build-suite
-          chart: azure-workload-identity-webhook
+          name: package and push azure-workload-identity-webhook chart
           app_catalog: control-plane-catalog
           app_catalog_test: control-plane-test-catalog
-          filters:
-            branches:
-              ignore:
-                - main
-                - master
-            tags:
-              only: /^v.*/
+          chart: azure-workload-identity-webhook
+          ct_config: ".circleci/ct-config.yaml"
+          <<: *job_filters
 
+      - architect/push-to-app-catalog:
+          context: architect
+          executor: app-build-suite
+          name: package and push azure-workload-identity-webhook-bundle chart
+          app_catalog: control-plane-catalog
+          app_catalog_test: control-plane-test-catalog
+          chart: azure-workload-identity-webhook-bundle
+          explicit_allow_chart_name_mismatch: true
+          <<: *job_filters
