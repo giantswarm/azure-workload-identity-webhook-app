@@ -2,3 +2,4 @@ chart-dir: helm/azure-workload-identity-webhook
 replace-chart-version-with-git: true
 generate-metadata: true
 catalog-base-url: https://giantswarm.github.io/control-plane-catalog/
+ct-config: ./.circleci/ct-config.yaml
