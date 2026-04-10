@@ -26,25 +26,6 @@ Create chart name and version as used by the chart label.
 {{- end -}}
 
 {{/*
-Resolve clusterID: use .Values.clusterID if set, otherwise derive from
-the release name by stripping known chart name suffixes.
-*/}}
-{{- define "azure-workload-identity-webhook-bundle.clusterID" -}}
-{{- if .Values.clusterID -}}
-  {{- .Values.clusterID -}}
-{{- else -}}
-  {{- $name := .Release.Name -}}
-  {{- range $suffix := list (printf "-%s" $.Chart.Name) "-azure-workload-identity-webhook-bundle" -}}
-    {{- $name = trimSuffix $suffix $name -}}
-  {{- end -}}
-  {{- if eq $name .Release.Name -}}
-    {{- fail "clusterID not set and cannot derive cluster name from release name" -}}
-  {{- end -}}
-  {{- $name -}}
-{{- end -}}
-{{- end -}}
-
-{{/*
 Common labels
 */}}
 {{- define "azure-workload-identity-webhook-bundle.labels" -}}
@@ -57,7 +38,6 @@ app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 giantswarm.io/service-type: "managed"
 application.giantswarm.io/team: {{ index .Chart.Annotations "application.giantswarm.io/team" | quote }}
-giantswarm.io/cluster: {{ include "azure-workload-identity-webhook-bundle.clusterID" . | quote }}
 {{- end -}}
 
 {{/*
@@ -77,7 +57,7 @@ Transform flat bundle values into the nested workload chart structure.
 {{- $upstreamValues := dict -}}
 
 {{/* Keys that belong to the bundle chart itself (never forwarded) */}}
-{{- $bundleOnlyKeys := list "ociRepositoryUrl" "clusterID" "clusterName" -}}
+{{- $bundleOnlyKeys := list "ociRepositoryUrl" "clusterName" -}}
 {{/* Keys forwarded as workload extras (not under upstream:) */}}
 {{- $extrasKeys := list "networkPolicy" "verticalPodAutoscaler" "global" -}}
 {{/* Keys with special handling */}}

@@ -1,7 +1,5 @@
 # ─── BUNDLE-ONLY ─────────────────────────────────────────────────────────────
 ociRepositoryUrl: oci://gsoci.azurecr.io/charts/giantswarm/azure-workload-identity-webhook
-# clusterID: ""
-
 # ─── UPSTREAM ────────────────────────────────────────────────────────────────
 image:
   registry: gsoci.azurecr.io

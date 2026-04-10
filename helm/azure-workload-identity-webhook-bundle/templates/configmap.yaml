@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   labels:
     {{- include "azure-workload-identity-webhook-bundle.labels" . | nindent 4 }}
-  name: {{ include "azure-workload-identity-webhook-bundle.clusterID" . }}-azure-workload-identity-webhook-config
+  name: azure-workload-identity-webhook-config
   namespace: {{ .Release.Namespace }}
 data:
   values: |
