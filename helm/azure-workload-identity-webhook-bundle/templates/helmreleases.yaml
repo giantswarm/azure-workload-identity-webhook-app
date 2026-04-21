@@ -1,0 +1,41 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: OCIRepository
+metadata:
+  labels:
+    {{- include "azure-workload-identity-webhook-bundle.labels" . | nindent 4 }}
+  name: azure-workload-identity-webhook
+  namespace: {{ .Release.Namespace }}
+spec:
+  interval: 5m
+  url: {{ .Values.ociRepositoryUrl }}
+  ref:
+    semver: "{{ .Chart.Version }}"
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  labels:
+    {{- include "azure-workload-identity-webhook-bundle.labels" . | nindent 4 }}
+  name: azure-workload-identity-webhook
+  namespace: {{ .Release.Namespace }}
+spec:
+  chart:
+    spec:
+      chart: azure-workload-identity-webhook
+      sourceRef:
+        kind: OCIRepository
+        name: azure-workload-identity-webhook
+      version: "{{ .Chart.Version }}"
+  interval: 5m
+  releaseName: azure-workload-identity-webhook
+  targetNamespace: kube-system
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
+  valuesFrom:
+  - kind: ConfigMap
+    name: azure-workload-identity-webhook-config
+    valuesKey: values

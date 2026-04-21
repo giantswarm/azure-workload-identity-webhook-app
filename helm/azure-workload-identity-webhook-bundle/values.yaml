@@ -1,0 +1,54 @@
+# ─── BUNDLE-ONLY ─────────────────────────────────────────────────────────────
+ociRepositoryUrl: oci://gsoci.azurecr.io/charts/giantswarm/azure-workload-identity-webhook
+# ─── UPSTREAM ────────────────────────────────────────────────────────────────
+image:
+  registry: gsoci.azurecr.io
+  repository: giantswarm/webhook
+  pullPolicy: IfNotPresent
+  release: v1.5.1
+
+replicaCount: 2
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 200Mi
+  requests:
+    cpu: 100m
+    memory: 20Mi
+
+nodeSelector:
+  kubernetes.io/os: linux
+
+tolerations: []
+
+affinity:
+  podAntiAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - podAffinityTerm:
+        labelSelector:
+          matchLabels:
+            app: azure-workload-identity-webhook
+        topologyKey: kubernetes.io/hostname
+      weight: 100
+
+azureEnvironment: AzurePublicCloud
+azureTenantID:
+logLevel: info
+metricsAddr: ":8095"
+metricsBackend: prometheus
+priorityClassName: system-cluster-critical
+
+podDisruptionBudget:
+  minAvailable: 1
+
+# ─── EXTRAS ──────────────────────────────────────────────────────────────────
+networkPolicy:
+  enabled: true
+
+verticalPodAutoscaler:
+  enabled: true
+
+global:
+  podSecurityStandards:
+    enforced: true

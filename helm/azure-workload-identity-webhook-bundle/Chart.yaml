@@ -1,6 +1,6 @@
 apiVersion: v2
-name: azure-workload-identity-webhook
-description: A Helm chart to install the azure-workload-identity webhook
+name: azure-workload-identity-webhook-bundle
+description: Bundle chart for azure-workload-identity-webhook (management cluster)
 type: application
 version: 1.0.3
 appVersion: v1.5.1
@@ -10,8 +10,3 @@ sources:
   - https://github.com/Azure/azure-workload-identity
 annotations:
   application.giantswarm.io/team: phoenix
-dependencies:
-  - name: workload-identity-webhook
-    alias: upstream
-    version: "1.5.1"
-    repository: "https://azure.github.io/azure-workload-identity/charts"
