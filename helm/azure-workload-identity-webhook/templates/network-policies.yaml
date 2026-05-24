@@ -1,0 +1,22 @@
+{{- if .Values.networkPolicy.enabled }}
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  labels:
+    {{- include "azure-workload-identity-webhook.labels" . | nindent 4 }}
+  name: azure-wi-webhook-controller-manager
+  namespace: {{ .Release.Namespace }}
+spec:
+  endpointSelector:
+    matchLabels:
+      app.kubernetes.io/name: azure-workload-identity-webhook
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  ingress:
+  - fromEntities:
+    - cluster
+    - kube-apiserver
+  egress:
+  - toEntities:
+    - cluster
+    - kube-apiserver
+{{- end }}

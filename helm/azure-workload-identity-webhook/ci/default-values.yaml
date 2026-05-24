@@ -1,1 +1,2 @@
-azureTenantID: "123345"
+upstream:
+  azureTenantID: "123345"

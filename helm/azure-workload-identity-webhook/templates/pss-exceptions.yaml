@@ -1,0 +1,28 @@
+{{- if .Values.global.podSecurityStandards.enforced }}
+apiVersion: kyverno.io/v2beta1
+kind: PolicyException
+metadata:
+  labels:
+    {{- include "azure-workload-identity-webhook.labels" . | nindent 4 }}
+  name: azure-wi-webhook-controller-manager
+  namespace: {{ .Release.Namespace }}
+spec:
+  exceptions:
+  - policyName: disallow-capabilities-strict
+    ruleNames:
+    - require-drop-all
+    - autogen-require-drop-all
+  - policyName: require-run-as-nonroot
+    ruleNames:
+    - run-as-non-root
+    - autogen-run-as-non-root
+  match:
+    any:
+    - resources:
+        namespaces:
+        - {{ .Release.Namespace }}
+        names:
+        - azure-wi-webhook-controller-manager-*
+        kinds:
+        - Pod
+{{- end }}
