@@ -1,6 +1,11 @@
 {
   "extends": [
-    // Base config - https://github.com/giantswarm/renovate-presets/blob/main/default.json5
     "github>giantswarm/renovate-presets:default.json5",
+  ],
+  "packageRules": [
+    {
+      "matchFileNames": ["helm/azure-workload-identity-webhook/values.yaml", "helm/azure-workload-identity-webhook-bundle/values.yaml"],
+      "enabled": false,
+    },
   ],
 }

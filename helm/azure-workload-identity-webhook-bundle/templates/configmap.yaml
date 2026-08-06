@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    {{- include "azure-workload-identity-webhook-bundle.labels" . | nindent 4 }}
+  name: azure-workload-identity-webhook-config
+  namespace: {{ .Release.Namespace }}
+data:
+  values: |
+  {{- (include "giantswarm.workloadValues" .) | nindent 4 }}

@@ -1,119 +1,23 @@
 {
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
+    "additionalProperties": true,
     "properties": {
-        "affinity": {
-            "type": "object"
-        },
-        "azureEnvironment": {
-            "type": "string"
-        },
-        "azureTenantID": {
-            "type": ["null", "string"]
-        },
-        "image": {
+        "upstream": {
             "type": "object",
-            "properties": {
-                "pullPolicy": {
-                    "type": "string"
-                },
-                "release": {
-                    "type": "string"
-                },
-                "repository": {
-                    "type": "string"
-                }
-            }
+            "additionalProperties": true
         },
-        "imagePullSecrets": {
-            "type": "array"
-        },
-        "logLevel": {
-            "type": "string"
-        },
-        "metricsAddr": {
-            "type": "string"
-        },
-        "metricsBackend": {
-            "type": "string"
-        },
-        "mutatingWebhookAnnotations": {
-            "type": "object"
-        },
-        "mutatingWebhookNamespaceSelector": {
-            "type": "object"
-        },
-        "nodeSelector": {
+        "networkPolicy": {
             "type": "object",
-            "properties": {
-                "kubernetes.io/os": {
-                    "type": "string"
-                }
-            }
+            "additionalProperties": true
         },
-        "podAnnotations": {
-            "type": "object"
-        },
-        "podDisruptionBudget": {
+        "verticalPodAutoscaler": {
             "type": "object",
-            "properties": {
-                "minAvailable": {
-                    "type": "integer"
-                }
-            }
+            "additionalProperties": true
         },
-        "podLabels": {
-            "type": "object"
-        },
-        "priorityClassName": {
-            "type": "string"
-        },
-        "replicaCount": {
-            "type": "integer"
-        },
-        "resources": {
+        "global": {
             "type": "object",
-            "properties": {
-                "limits": {
-                    "type": "object",
-                    "properties": {
-                        "cpu": {
-                            "type": "string"
-                        },
-                        "memory": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "requests": {
-                    "type": "object",
-                    "properties": {
-                        "cpu": {
-                            "type": "string"
-                        },
-                        "memory": {
-                            "type": "string"
-                        }
-                    }
-                }
-            }
-        },
-        "service": {
-            "type": "object",
-            "properties": {
-                "port": {
-                    "type": "integer"
-                },
-                "targetPort": {
-                    "type": "integer"
-                },
-                "type": {
-                    "type": "string"
-                }
-            }
-        },
-        "tolerations": {
-            "type": "array"
+            "additionalProperties": true
         }
     }
 }
